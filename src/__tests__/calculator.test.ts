@@ -30,4 +30,8 @@ describe("TDD String calculator", () => {
   test("Numbers bigger than 1000 should be ignored.", () => {
     expect(add("3,1001")).toBe(3);
   });
+
+  test("Check Delimiters of any length", () => {
+    expect(add("//[***]\n1***2***3")).toBe(6);
+  });
 });
