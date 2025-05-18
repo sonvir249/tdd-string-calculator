@@ -22,4 +22,12 @@ describe("TDD String calculator", () => {
       add("-1,-2");
     }).toThrow("Negative numbers (-1,-2) are not allowed.");
   });
+
+  test("Check support for all delimiter.", () => {
+    expect(add("//;\n1;2")).toBe(3);
+  });
+
+  test("Numbers bigger than 1000 should be ignored.", () => {
+    expect(add("3,1001")).toBe(3);
+  });
 });

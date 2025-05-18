@@ -2,7 +2,7 @@ export const add = (numbers: string): number => {
   let result: number = 0;
   if (numbers === "") return 0;
 
-  let delimiters = [",", "\n"];
+  let delimiters = [",", "\n", ";"];
   let numberString = numbers;
 
   // Extract all numbers from given string.
@@ -21,6 +21,8 @@ export const add = (numbers: string): number => {
 
   // Check for different delimiters.
   if (numberString.startsWith("//")) {
+    const newLineIndex = numberString.indexOf("\n");
+    numberString = numbers.substring(newLineIndex + 1);
   }
 
   const numberArray = numberString
