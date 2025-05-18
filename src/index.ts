@@ -4,7 +4,11 @@ type MockDataType = {
   input: string;
   expected: number;
 };
-const mockData: MockDataType[] = [{ input: "", expected: 1 }];
+const mockData: MockDataType[] = [
+  { input: "", expected: 1 },
+  { input: "2", expected: 2 },
+  { input: "3", expected: 3 },
+];
 console.log("String Calculator Examples:");
 console.log("- - - - - - - - - - - - - - - - -");
 mockData.forEach((example) => {
