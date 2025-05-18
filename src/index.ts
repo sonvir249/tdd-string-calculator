@@ -11,6 +11,8 @@ const mockData: MockDataType[] = [
   { input: "1\n2,3", expected: 6 },
   { input: "//;\n1;2", expected: 3 },
   { input: "3,1001", expected: 3 },
+  { input: "//[***]\n1***2***3", expected: 6 },
+  { input: "//[*][%]\n1*2%3?4", expected: 10 },
 ];
 console.log("String Calculator Examples:");
 console.log("--------------------------");

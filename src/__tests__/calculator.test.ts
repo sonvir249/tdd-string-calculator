@@ -34,4 +34,8 @@ describe("TDD String calculator", () => {
   test("Check Delimiters of any length", () => {
     expect(add("//[***]\n1***2***3")).toBe(6);
   });
+
+  test("Check multiple delimiters of any length", () => {
+    expect(add("//[*][%]\n1*2%3?4")).toBe(10);
+  });
 });
