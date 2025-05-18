@@ -8,6 +8,7 @@ const mockData: MockDataType[] = [
   { input: "", expected: 0 },
   { input: "2", expected: 2 },
   { input: "1,3", expected: 4 },
+  { input: "1\n2,3", expected: 6 },
 ];
 console.log("String Calculator Examples:");
 console.log("--------------------------");
