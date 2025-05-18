@@ -16,18 +16,29 @@ export const add = (numbers: string): number => {
   }
 
   const delimiterRegex = new RegExp(
-    delimiters.map((d) => escapeRegExp(d)).join("|")
+    delimiters.map((d) => removeSpecialChars(d)).join("|")
   );
-  const numArray = numberString
+
+  // Check for different delimiters.
+  if (numberString.startsWith("//")) {
+  }
+
+  const numberArray = numberString
     .split(delimiterRegex)
     .map((n) => parseInt(n, 10));
 
-  result = numArray
+  result = numberArray
     .filter((n) => !isNaN(n) && n <= 1000)
     .reduce((acc, val) => acc + val, 0);
+
+  const isNegative = numberArray.filter((n) => n < 0);
+  if (isNegative.length) {
+    throw new Error(`Negative numbers (${numberString}) are not allowed.`);
+  }
+
   return result;
 };
 
-function escapeRegExp(str: string): string {
+function removeSpecialChars(str: string): string {
   return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }

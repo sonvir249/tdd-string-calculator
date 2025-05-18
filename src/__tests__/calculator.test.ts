@@ -14,6 +14,12 @@ describe("TDD String calculator", () => {
   });
 
   test("Handles new lines between numbers should return sum of number", () => {
-    expect(add("1,\n2,3")).toBe(6);
+    expect(add("1\n2,3")).toBe(6);
+  });
+
+  test("Negative numbers should throw an error.", () => {
+    expect(() => {
+      add("-1,-2");
+    }).toThrow("Negative numbers (-1,-2) are not allowed.");
   });
 });
