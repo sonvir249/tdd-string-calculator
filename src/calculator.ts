@@ -27,7 +27,6 @@ export const add = (numbers: string): number => {
 
   const numberArray = numberString
     .split(delimiterRegex)
-    .filter((s) => s)
     .map((n) => parseInt(n, 10));
 
   result = numberArray
@@ -39,12 +38,11 @@ export const add = (numbers: string): number => {
     throw new Error(`Negative numbers (${numberString}) are not allowed.`);
   }
 
-  // Check of string contains string char.
-  if (numberArray.includes(NaN)) {
+  // Check if string contains alphabets
+  if (/[a-zA-Z]/.test(numberString)) {
     const anotherNumArr = numberString
       .split(",")
       .filter((val) => Number.isNaN(parseInt(val)));
-
     throw new Error(`Invalid string. ${anotherNumArr.join(", ")}`);
   }
 
