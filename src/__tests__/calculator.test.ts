@@ -31,11 +31,17 @@ describe("TDD String calculator", () => {
     expect(add("3,1001")).toBe(3);
   });
 
-  test("Check Delimiters of any length", () => {
-    expect(add("//[***]\n1***2***3")).toBe(6);
-  });
-
   test("Check multiple delimiters of any length", () => {
     expect(add("//[*][%]\n1*2%3?4")).toBe(10);
+  });
+
+  test("Custom string", () => {
+    expect(() => {
+      add("12,ty,2,3,rt");
+    }).toThrow("Invalid string. ty, rt");
+  });
+
+  test("Check Delimiters of any length", () => {
+    expect(add("//[***]\n1***2***3")).toBe(6);
   });
 });
